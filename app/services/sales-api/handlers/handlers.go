@@ -5,7 +5,7 @@ package handlers
 import (
 	"expvar"
 	"github.com/Budi721/ultimate-service/app/services/sales-api/handlers/debug/checkgrp"
-	"github.com/Budi721/ultimate-service/app/services/sales-api/handlers/v1/tesgrp"
+	"github.com/Budi721/ultimate-service/app/services/sales-api/handlers/v1/testgrp"
 	"github.com/dimfeld/httptreemux/v5"
 	"go.uber.org/zap"
 	"net/http"
@@ -58,7 +58,7 @@ type APIMuxConfig struct {
 // APIMux constructs an http.Handler with all application routes defined.
 func APIMux(cfg APIMuxConfig) *httptreemux.ContextMux {
 	mux := httptreemux.NewContextMux()
-	tgh := tesgrp.Handlers{
+	tgh := testgrp.Handlers{
 		Log: cfg.Log,
 	}
 	mux.Handle(http.MethodGet, "/v1/test", tgh.Test)
